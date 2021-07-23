@@ -1,33 +1,22 @@
 #!/bin/sh
 PLUGIN_PATH=$1
-REPOSITORY_PATH=$2
-NEW_UUID=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 
-cp -R $REPOSITORY_PATH "/dev/shm/$NEW_UUID"
+COMMAND="java -jar $PLUGIN_PATH/rMinerSHARK.jar --project ${9} --db-hostname $2 --db-port $3 --db-database $4"
 
-COMMAND="java -jar $PLUGIN_PATH/target/rMineSHARK.jar --input /dev/shm/$NEW_UUID --rev $3 --url $4 --project_name ${5} --db-hostname $6 --db-port $7 --db-database $8"
-
-if [ ! -z ${13+x} ] && [ ${13} != "None" ]; then
-    COMMAND="$COMMAND --debug ${13}"
+if [ ! -z ${5+x} ] && [ ${5} != "None" ]; then
+	COMMAND="$COMMAND --db-user ${5}"
 fi
 
-if [ ! -z ${9+x} ] && [ ${9} != "None" ]; then
-	COMMAND="$COMMAND --db-user ${9}"
+if [ ! -z ${6+x} ] && [ ${6} != "None" ]; then
+	COMMAND="$COMMAND --db-password ${6}"
 fi
 
-if [ ! -z ${10+x} ] && [ ${10} != "None" ]; then
-	COMMAND="$COMMAND --db-password ${10}"
+if [ ! -z ${7+x} ] && [ ${7} != "None" ]; then
+	COMMAND="$COMMAND --db-authentication ${7}"
 fi
 
-if [ ! -z ${11+x} ] && [ ${11} != "None" ]; then
-	COMMAND="$COMMAND --db-authentication ${11}"
-fi
-
-if [ ! -z ${12+x} ] && [ ${12} != "None" ]; then
+if [ ! -z ${8+x} ] && [ ${8} != "None" ]; then
 	COMMAND="$COMMAND -ssl"
 fi
 
-
 $COMMAND
-
-rm -rf "/dev/shm/$NEW_UUID"

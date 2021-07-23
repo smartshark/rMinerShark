@@ -142,12 +142,12 @@ public class Common {
 
   public static void loadRepoFromMongoDB(String projectName, MongoClient client) throws IOException {
     GridFSBucket gridFSBucket = GridFSBuckets.create(client.getDatabase("smartshark"),"repository_data");
-    File yourFile = new File("tmp/"+ projectName + ".tar.gz");
+    File yourFile = new File("/tmp/"+ projectName + ".tar.gz");
     yourFile.createNewFile();
     FileOutputStream streamToDownloadTo = new FileOutputStream(yourFile);
     gridFSBucket.downloadToStream(projectName + ".tar.gz", streamToDownloadTo);
     streamToDownloadTo.close();
-    extractTarGZ(yourFile,"tmp");
+    extractTarGZ(yourFile,"/tmp");
     yourFile.delete();
   }
 

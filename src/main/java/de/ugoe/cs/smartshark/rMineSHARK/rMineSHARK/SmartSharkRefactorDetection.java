@@ -152,7 +152,7 @@ public class SmartSharkRefactorDetection {
     private Repository loadRepo() throws Exception {
         GitService gitService = new GitServiceImpl();
 
-        return gitService.openRepository("tmp/" + p.getName());
+        return gitService.openRepository("/tmp/" + p.getName());
     }
 
     private void performForCommit(Commit commit) throws Exception {

@@ -1,8 +1,8 @@
 {
-    "name": "rMineSHARK",
+    "name": "rMinerSHARK",
     "author": "Benjamin Ledel",
-    "version": "0.0.1",
-    "plugin_type": "rev",
+    "version": "0.0.2",
+    "plugin_type": "other",
     "linux_libraries": [
         "git", 
         "gradle"
@@ -28,88 +28,60 @@
             "description": "path to the root folder of the plugin"
         },
         {
-            "name": "path",
-            "required": true,
-            "position": 2,
-            "type": "execute",
-            "description": "path to the project repository (revision must be set)"
-        },
-        {
-            "name": "revision",
-            "required": true,
-            "position": 3,
-            "type": "execute",
-            "description": "revision hash that is processed"
-        },
-        {
-            "name": "repository_url",
-            "required": true,
-            "position": 4,
-            "type": "execute",
-            "description": "url of the project"
-        },
-		{
-            "name": "project_name",
-            "required": true,
-            "position": 5,
-            "type": "execute",
-            "description": "name of the project"
-        },
-        {
             "name": "db_hostname",
             "required": true,
-            "position": 6,
+            "position": 2,
             "type": "execute",
             "description": "hostname of the server, where the mongodb runs on"
         },
         {
             "name": "db_port",
             "required": true,
-            "position": 7,
+            "position": 3,
             "type": "execute",
             "description": "port on which the mongodb is listening on"
         },
         {
             "name": "db_database",
             "required": true,
-            "position": 8,
+            "position": 4,
             "type": "execute",
             "description": "name of the database in the mongodb"
         },
         {
             "name": "db_user",
             "required": false,
-            "position": 9,
+            "position": 5,
             "type": "execute",
             "description": "database user for the mongodb"
         },
         {
             "name": "db_password",
             "required": false,
-            "position": 10,
+            "position": 6,
             "type": "execute",
             "description": "password for the user of the mongodb"
         },
         {
             "name": "db_authentication",
             "required": false,
-            "position": 11,
+            "position": 7,
             "type": "execute",
             "description": "databse against which users are authenticated"
         },
         {
             "name": "ssl_enabled",
             "required": false,
-            "position": 12,
+            "position": 8,
             "type": "execute",
             "description": "needs to be set if database uses ssl connection"
         },
-        {
-            "name": "log_level",
-            "required": false,
-            "position": 13,
+		{
+            "name": "project_name",
+            "required": true,
+            "position": 9,
             "type": "execute",
-            "description": "debug choices (INFO, DEBUG, WARNING, ERROR)"
+            "description": "name of the project"
         }
     ]
 }

@@ -1,5 +1,87 @@
 {
-"collections":[  
-     
+"collections":[
+    {
+        "fields": [
+            {
+               "type":"ObjectIdType",
+               "logical_type":"OID",
+               "field_name":"_id",
+               "desc": "Identifier of the document."
+            },
+            {
+               "type":"ObjectIdType",
+               "logical_type":"RID",
+               "reference_to": "commit",
+               "field_name":"commit_id",
+               "desc": "ObjectID of the commit at which the refactoring was detected."
+            },
+            {
+               "type":"StringType",
+               "logical_type":"Name",
+               "field_name":"detection_tool",
+               "desc": "Name of the refactoring detection tool, e.g., refDiff, rMiner"
+            },
+            {
+               "type":"StringType",
+               "logical_type":"Name",
+               "field_name":"type",
+               "desc": "Name of the refactoring type."
+            },
+            {
+               "type":"StringType",
+               "logical_type":"Text",
+               "field_name":"description",
+               "desc": "The description of the refactoring provided by RefDiff."
+            },
+            {
+		       "sub_type":"StructType",
+		       "type":"ArrayType",
+			   "logical_type":"Nested",
+		       "field_name":"hunks",
+		       "desc": "refactoring hunks",
+		       "fields": [
+				    {
+				       "type":"ObjectIdType",
+				       "logical_type":"RID",
+				       "reference_to": "hunk",
+				       "field_name":"hunk_id",
+				       "desc": "Points to the hunk."
+				    },
+                    {
+                       "type":"StringType",
+                       "logical_type":"Text",
+                       "field_name":"mode",
+                       "desc": "mode"
+                    },
+                    {
+                       "type":"IntegerType",
+                       "logical_type":"ProductMetric",
+                       "field_name":"start_line",
+                       "desc": "start line"
+                    },
+                    {
+                       "type":"IntegerType",
+                       "logical_type":"ProductMetric",
+                       "field_name":"start_column",
+                       "desc": "start column"
+                    },
+                    {
+                       "type":"IntegerType",
+                       "logical_type":"ProductMetric",
+                       "field_name":"end_line",
+                       "desc": "end line"
+                    },
+                    {
+                       "type":"IntegerType",
+                       "logical_type":"ProductMetric",
+                       "field_name":"end_column",
+                       "desc": "end column"
+                    }
+                ]
+            }
+        ],
+         "desc": "Information about found refactorings with references to changed code entity states of changed classes and methods in a revision.",
+         "collection_name":"refactoring"
+      }
    ]
 }
