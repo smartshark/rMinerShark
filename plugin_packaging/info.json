@@ -1,7 +1,7 @@
 {
     "name": "rMinerSHARK",
     "author": "Benjamin Ledel",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "plugin_type": "other",
     "linux_libraries": [
         "git",
@@ -82,13 +82,6 @@
             "position": 9,
             "type": "execute",
             "description": "name of the project"
-        },
-        {
-            "name": "tmp_folder",
-            "required": true,
-            "position": 10,
-            "type": "execute",
-            "description": "Path of the temporary folder"
         }
     ]
 }

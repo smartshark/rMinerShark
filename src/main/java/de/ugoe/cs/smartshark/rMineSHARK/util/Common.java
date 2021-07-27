@@ -148,7 +148,7 @@ public class Common {
     FileOutputStream streamToDownloadTo = new FileOutputStream(yourFile);
     gridFSBucket.downloadToStream(projectName + ".tar.gz", streamToDownloadTo);
     streamToDownloadTo.close();
-    extractTarGZ(yourFile,"/tmp");
+    extractTarGZ(yourFile, param.getTmpFolder());
     yourFile.delete();
   }
 
