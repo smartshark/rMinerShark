@@ -27,6 +27,7 @@ public class Parameter {
   private String dbHostname;
   private int dbPort;
   private String dbAuthentication;
+  private String folder;
 
   // debug parameter
   private String debugLevel;
@@ -58,6 +59,7 @@ public class Parameter {
     dbPort = Integer.parseInt(cmd.getOptionValue("p", "27017"));
     dbAuthentication = cmd.getOptionValue("a", "");
     debugLevel = cmd.getOptionValue("d", "ERROR");
+    folder = cmd.getOptionValue("f", "/tmp");
 
     initialized = true;
   }
@@ -134,6 +136,13 @@ public class Parameter {
       System.out.println("The current parameter instance is not initialized!");
     }
     return debugLevel;
+  }
+
+  public String getTmpFolder() {
+    if (!isInitialized()) {
+      System.out.println("The current parameter instance is not initialized!");
+    }
+    return folder;
   }
 
   private CommandLine parseCommandLineArguments(String[] args) {

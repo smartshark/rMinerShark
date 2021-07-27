@@ -5,6 +5,7 @@ import java.util.*;
 
 import com.mongodb.MongoClient;
 import de.ugoe.cs.smartshark.rMineSHARK.util.Common;
+import de.ugoe.cs.smartshark.rMineSHARK.util.Parameter;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.lang3.ArrayUtils;
@@ -43,7 +44,7 @@ public class SmartSharkRefactorDetection {
     private static final String BEFORE_NAME = "D";
     private static final String AFTER_NAME = "A";
     private static final Map<String, String> typeMap;
-    
+
     static {
     	typeMap = new HashMap<>();
     	typeMap.put("Rename Refactoring", "rename_refactoring");
@@ -87,7 +88,7 @@ public class SmartSharkRefactorDetection {
     	typeMap.put("Move And Rename Attribute", "move_and_rename_attribute");
     	typeMap.put("Replace Attribute", "replace_attribute");
     }
-    
+
     private final MongoClient mongoClient;
 
     private int hunksRemoved = 0;
@@ -152,7 +153,8 @@ public class SmartSharkRefactorDetection {
     private Repository loadRepo() throws Exception {
         GitService gitService = new GitServiceImpl();
 
-        return gitService.openRepository("/tmp/" + p.getName());
+        Parameter param = Parameter.getInstance();
+        return gitService.openRepository(param.getTmpFolder() + "/" + p.getName());
     }
 
     private void performForCommit(Commit commit) throws Exception {

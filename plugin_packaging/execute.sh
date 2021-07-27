@@ -19,4 +19,8 @@ if [ ! -z ${8+x} ] && [ ${8} != "None" ]; then
 	COMMAND="$COMMAND -ssl"
 fi
 
+if [ ! -z ${10+x} ] && [ ${10} != "None" ]; then
+	COMMAND="$COMMAND --folder ${10}"
+fi
+
 $COMMAND

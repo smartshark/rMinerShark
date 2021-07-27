@@ -4,7 +4,7 @@
     "version": "0.0.2",
     "plugin_type": "other",
     "linux_libraries": [
-        "git", 
+        "git",
         "gradle"
     ],
     "created_collections": [
@@ -82,6 +82,13 @@
             "position": 9,
             "type": "execute",
             "description": "name of the project"
+        },
+        {
+            "name": "tmp_folder",
+            "required": true,
+            "position": 10,
+            "type": "execute",
+            "description": "Path of the temporary folder"
         }
     ]
 }

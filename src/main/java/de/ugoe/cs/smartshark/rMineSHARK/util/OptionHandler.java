@@ -82,5 +82,12 @@ public class OptionHandler {
     option.setRequired(false);
     options.addOption(option);
 
+    option = new Option("f", "Temp Folder. Required.");
+    option.setRequired(false);
+    option.setLongOpt("folder");
+    option.setArgs(1);
+    option.setArgName("folder");
+    options.addOption(option);
+
   }
 }
